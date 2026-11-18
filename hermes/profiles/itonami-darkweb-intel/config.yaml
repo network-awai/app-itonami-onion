@@ -1,28 +1,20 @@
 # Host-local blocks (command_allowlist, onboarding, secrets, skills, terminal) are kept on the host and omitted here.
 model:
-  provider: murakumo
-  base_url: https://api.murakumo.cloud/v1
+  provider: openrouter
+  base_url: https://openrouter.ai/api/v1
   key_env: CUSTOM_PROVIDER_MURAKUMO_KEY
-  default: mishima
+  default: xiaomi/mimo-v2.6-pro
   max_tokens: 1024
   context_length: 131072
 providers:
-  murakumo:
-    base_url: https://api.murakumo.cloud/v1
+  openrouter:
+    base_url: https://openrouter.ai/api/v1
     api_mode: chat_completions
-    key_env: CUSTOM_PROVIDER_MURAKUMO_KEY
-    models:
-      mishima:
-        context_length: 131072
-        max_tokens: 1024
-      qwen3-vl-2b-instruct:
-        context_length: 4096
-        max_tokens: 512
+    key_env: OPENROUTER_API_KEY
     stale_timeout_seconds: 600
-    request_timeout_seconds: 900
     extra_headers:
       HTTP-Referer: https://itonami.cloud
-      X-Title: Itonami By KotobaLabs
+      X-OpenRouter-Title: Itonami By KotobaLabs
 plugins:
   enabled: []
 _config_version: 46
